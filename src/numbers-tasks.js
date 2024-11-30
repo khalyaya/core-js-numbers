@@ -111,8 +111,12 @@ function getLinearEquationRoot(a, b) {
  *   (0,-1) (1,0)    => π/2
  *   (0,1) (0,1)     => 0
  */
-function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getAngleBetweenVectors(x1, y1, x2, y2) {
+  const dotProd = x1 * x2 + y1 * y2;
+  const moduleVectorOne = Math.sqrt(x1 ** 2 + y1 ** 2);
+  const moduleVectorTwo = Math.sqrt(x2 ** 2 + y2 ** 2);
+  const angle = Math.acos(dotProd / (moduleVectorOne * moduleVectorTwo));
+  return angle;
 }
 
 /**
@@ -128,8 +132,9 @@ function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
  *     5     => 5
  *     0     => 0
  */
-function getLastDigit(/* value */) {
-  throw new Error('Not implemented');
+function getLastDigit(value) {
+  const lastNum = value % 10;
+  return lastNum;
 }
 
 /**
@@ -143,8 +148,8 @@ function getLastDigit(/* value */) {
  *     '37'     => 37
  * '-525.5'     => -525.5
  */
-function parseNumberFromString(/* value */) {
-  throw new Error('Not implemented');
+function parseNumberFromString(value) {
+  return Number(value);
 }
 
 /**
@@ -160,8 +165,9 @@ function parseNumberFromString(/* value */) {
  *   3,3,3   => 5.196152422706632
  *   1,2,3   => 3.741657386773941
  */
-function getParallelepipedDiagonal(/* a, b, c */) {
-  throw new Error('Not implemented');
+function getParallelepipedDiagonal(a, b, c) {
+  const diagonal = Math.sqrt(a ** 2 + b ** 2 + c ** 2);
+  return diagonal;
 }
 
 /**
@@ -181,8 +187,8 @@ function getParallelepipedDiagonal(/* a, b, c */) {
  *   1678, 2  => 1700
  *   1678, 3  => 2000
  */
-function roundToPowerOfTen(/* num, pow */) {
-  throw new Error('Not implemented');
+function roundToPowerOfTen(num, pow) {
+  return Math.round(num / 10 ** pow) * 10 ** pow;
 }
 
 /**
@@ -202,8 +208,17 @@ function roundToPowerOfTen(/* num, pow */) {
  *   16 => false
  *   17 => true
  */
-function isPrime(/* n */) {
-  throw new Error('Not implemented');
+function isPrime(n) {
+  const oddArr = [3, 5, 7, 9];
+  if (n % 2 !== 0 || n === 2) {
+    for (let i = 0; i < oddArr.length; i += 1) {
+      if (n % oddArr[i] === 0 && oddArr[i] !== n) {
+        return false;
+      }
+    }
+    return true;
+  }
+  return false;
 }
 
 /**
